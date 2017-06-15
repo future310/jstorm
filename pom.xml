@@ -152,14 +152,14 @@
     <module>jstorm-ui</module>
     <!--<module>jstorm-utility/jstorm-rocket-mq</module>-->
     <module>jstorm-utility/jstorm-kafka</module>
-    <module>jstorm-utility/ons</module>
+   <!-- <module>jstorm-utility/ons</module>
     <module>jstorm-utility/jstorm-flux</module>
     <module>jstorm-utility/jstorm-elasticsearch</module>
-    <module>jstorm-on-yarn</module>
+    <module>jstorm-on-yarn</module>-->
   </modules>
 
   <profiles>
-    <profile>
+   <!-- <profile>
       <id>sign</id>
       <build>
         <plugins>
@@ -178,7 +178,7 @@
           </plugin>
         </plugins>
       </build>
-    </profile>
+    </profile>-->
       
     <!-- 
     <profile>
@@ -266,7 +266,7 @@
 -->
 
   <repositories>
-    <repository>
+    <!--<repository>
       <id>nexus</id>
       <name>local private nexus</name>
       <url>http://maven.oschina.net/content/groups/public/</url>
@@ -277,14 +277,8 @@
         <enabled>false</enabled>
       </snapshots>
     </repository>
-    <repository>
-      <id>taobao</id>
-      <url>http://mvnrepo.code.taobao.org/nexus/content/repositories/releases/</url>
-    </repository>
-    <repository>
-      <id>twitter4j</id>
-      <url>http://twitter4j.org/maven2</url>
-    </repository>
+    -->
+
     <repository>
       <id>central</id>
       <url>http://repo1.maven.org/maven2</url>
@@ -294,8 +288,16 @@
       <url>http://clojars.org/repo/</url>
     </repository>
     <repository>
+      <id>taobao</id>
+      <url>http://mvnrepo.code.taobao.org/nexus/content/repositories/releases/</url>
+    </repository>
+    <repository>
       <id>C</id>
       <url>http://repository.sonatype.org/content/groups/public/</url>
+    </repository>
+    <repository>
+      <id>twitter4j</id>
+      <url>http://twitter4j.org/maven2</url>
     </repository>
   </repositories>
 
@@ -361,11 +363,11 @@
           <artifactId>maven-surefire-report-plugin</artifactId>
           <version>2.16</version>
         </plugin>
-        <plugin>
+        <!--<plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-gpg-plugin</artifactId>
           <version>1.6</version>
-        </plugin>
+        </plugin>-->
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-shade-plugin</artifactId>
@@ -404,7 +406,7 @@
         </executions>
       </plugin>
       
-      <plugin>
+      <!--<plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-javadoc-plugin</artifactId>
           <configuration>
@@ -427,7 +429,7 @@
                   <phase>site</phase>
               </execution>
           </executions>
-      </plugin>
+      </plugin>-->
 
       <!--
       // if release jstorm to maven center repository

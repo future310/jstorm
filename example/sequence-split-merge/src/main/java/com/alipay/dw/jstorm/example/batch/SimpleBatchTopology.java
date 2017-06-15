@@ -51,7 +51,7 @@ public class SimpleBatchTopology {
         topologyName = className[className.length - 1];
         
         try {
-            JStormHelper.runTopology(SetBuilder().createTopology(), topologyName, conf, 100,
+            JStormHelper.runTopology(SetBuilder().createTopology(), topologyName, conf, 10,
                     new JStormHelper.CheckAckedFail(conf), isLocal);
         } catch (Exception e) {
             // TODO Auto-generated catch block
@@ -63,7 +63,7 @@ public class SimpleBatchTopology {
     public static void main(String[] args) throws Exception {
         
         conf = JStormHelper.getConfig(args);
-        isLocal = false;
+        isLocal = true;
         test();
     }
 }

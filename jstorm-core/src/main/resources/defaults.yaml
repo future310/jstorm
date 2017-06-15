@@ -22,9 +22,9 @@ java.library.path: "/usr/local/lib:/opt/local/lib:/usr/lib"
 
 ### storm.* configs are general configurations
 # the local dir is where jars are kept
-storm.local.dir: "jstorm-local"
+storm.local.dir: "/app/jstorm-local-data"
 storm.zookeeper.servers:
-    - "localhost"
+    - "centos-jstorm"
 storm.zookeeper.port: 2181
 storm.zookeeper.root: "/jstorm"
 storm.zookeeper.session.timeout: 20000
@@ -58,7 +58,7 @@ storm.health.check.timeout.ms: 5000
 
 
 ### nimbus.* configs are for the master
-nimbus.host: "localhost"
+nimbus.host: "centos-jstorm"
 nimbus.thrift.port: 8627
 nimbus.thrift.threads: 64
 nimbus.thrift.max_buffer_size: 16384000
@@ -144,7 +144,7 @@ transactional.zookeeper.port: null
 #     - "org.mycompany.MyOtherObjectSerialization"
 ## Locations of the drpc servers
 drpc.servers:
-     - "localhost"
+     - "centos-jstorm"
 
 ### supervisor.* configs are for node supervisors
 # Define the amount of workers that can be run on this machine. Each worker is assigned a port to use for communication
@@ -159,11 +159,13 @@ supervisor.slots.ports.base: 6900
 supervisor.slots.port.cpu.weight: 1.2
 supervisor.slots.port.mem.weight: 0.8
 supervisor.slots.ports: null
-#supervisor.slots.ports:
-#    - 6800
-#    - 6801
-#    - 6802
-#    - 6803
+supervisor.slots.ports:
+    - 6800
+    - 6801
+    - 6802
+    - 6803
+    - 6804
+    - 6805
 supervisor.childopts: " -Xms1g -Xmx1g -Xmn512m -XX:PermSize=64m -XX:+UseConcMarkSweepGC  -XX:+UseCMSInitiatingOccupancyOnly -XX:CMSInitiatingOccupancyFraction=70 -XX:CMSFullGCsBeforeCompaction=5 -XX:+HeapDumpOnOutOfMemoryError -verbose:gc -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=100M -XX:+UseCMSCompactAtFullCollection -XX:CMSMaxAbortablePrecleanTime=5000 "
 supervisor.run.worker.as.user: false
 #how long supervisor will wait to ensure that a worker process is started
@@ -392,7 +394,7 @@ worker.cpu.core.upper.limit: 3
 
 dev.zookeeper.path: "/tmp/dev-storm-zookeeper"
 
-pacemaker.host: "localhost"
+pacemaker.host: "centos-jstorm"
 pacemaker.port: 6699
 pacemaker.base.threads: 10
 pacemaker.max.threads: 50

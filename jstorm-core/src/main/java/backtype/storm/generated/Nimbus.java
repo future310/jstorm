@@ -4001,7 +4001,8 @@ public class Nimbus {
       }
     }
 
-    public static class metricMonitor<I extends Iface> extends org.apache.thrift.ProcessFunction<I, metricMonitor_args> {
+    public static class
+    metricMonitor<I extends Iface> extends org.apache.thrift.ProcessFunction<I, metricMonitor_args> {
       public metricMonitor() {
         super("metricMonitor");
       }

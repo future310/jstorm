@@ -63,8 +63,8 @@ public class Acker implements IBolt {
 
     @Override
     public void execute(Tuple input) {
-        Object id = input.getValue(0);
-        AckObject curr = pending.get(id);
+        Object root_id = input.getValue(0);
+        AckObject curr = pending.get(root_id);
         String stream_id = input.getSourceStreamId();
         if (Acker.ACKER_INIT_STREAM_ID.equals(stream_id)) {
             if (curr == null) {
@@ -73,7 +73,7 @@ public class Acker implements IBolt {
                 curr.val = input.getLong(1);
                 curr.spout_task = input.getInteger(2);
 
-                pending.put(id, curr);
+                pending.put(root_id, curr);
             } else {
                 // bolt's ack first come
                 curr.update_ack(input.getValue(1));
@@ -89,7 +89,7 @@ public class Acker implements IBolt {
                 // the other is bolt's ack first come
                 curr = new AckObject();
                 curr.val = input.getLong(1);
-                pending.put(id, curr);
+                pending.put(root_id, curr);
             }
         } else if (Acker.ACKER_FAIL_STREAM_ID.equals(stream_id)) {
             if (curr == null) {
@@ -106,13 +106,13 @@ public class Acker implements IBolt {
         Integer task = curr.spout_task;
         if (task != null) {
             if (curr.val == 0) {
-                pending.remove(id);
-                List values = JStormUtils.mk_list(id);
+                pending.remove(root_id);
+                List values = JStormUtils.mk_list(root_id);
                 collector.emitDirect(task, Acker.ACKER_ACK_STREAM_ID, values);
             } else {
                 if (curr.failed) {
-                    pending.remove(id);
-                    List values = JStormUtils.mk_list(id);
+                    pending.remove(root_id);
+                    List values = JStormUtils.mk_list(root_id);
                     collector.emitDirect(task, Acker.ACKER_FAIL_STREAM_ID, values);
                 }
             }

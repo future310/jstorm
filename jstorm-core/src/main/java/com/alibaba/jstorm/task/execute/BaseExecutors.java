@@ -55,8 +55,6 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.concurrent.TimeUnit;
 
-//import com.alibaba.jstorm.message.zeroMq.IRecvConnection;
-
 /**
  * Base executor share between spout and bolt
  *

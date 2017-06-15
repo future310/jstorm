@@ -176,7 +176,7 @@ public class Worker {
         AsyncLoopThread refreshconn = new AsyncLoopThread(refreshConn, false, Thread.MIN_PRIORITY, true);
         threads.add(refreshconn);
 
-        // refresh ZK active status
+        // refresh  topology active status from ZK
         RefreshActive refreshZkActive = new RefreshActive(workerData);
         AsyncLoopThread refreshzk = new AsyncLoopThread(refreshZkActive, false, Thread.MIN_PRIORITY, true);
         threads.add(refreshzk);

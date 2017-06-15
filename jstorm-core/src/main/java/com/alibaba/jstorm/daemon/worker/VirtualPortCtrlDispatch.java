@@ -48,8 +48,8 @@ public class VirtualPortCtrlDispatch extends DisruptorRunable {
     protected IConnection recvConnection;
     protected AtomicReference<KryoTupleDeserializer> atomKryoDeserializer;
 
-    public VirtualPortCtrlDispatch(WorkerData workerData, IConnection recvConnection, DisruptorQueue recvQueue, String idStr) {
-        super(recvQueue, idStr);
+    public VirtualPortCtrlDispatch(WorkerData workerData, IConnection recvConnection, DisruptorQueue recvControlQueue, String idStr) {
+        super(recvControlQueue, idStr);
 
         this.recvConnection = recvConnection;
         this.controlQueues = workerData.getControlQueues();

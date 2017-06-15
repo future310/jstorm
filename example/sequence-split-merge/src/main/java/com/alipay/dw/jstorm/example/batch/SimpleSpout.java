@@ -28,6 +28,8 @@ import com.alibaba.jstorm.batch.BatchId;
 import com.alibaba.jstorm.batch.IBatchSpout;
 import java.util.Map;
 import java.util.Random;
+import java.util.concurrent.Exchanger;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -49,6 +51,11 @@ public class SimpleSpout implements IBatchSpout {
         for (int i = 0; i < batchSize; i++) {
             long value = rand.nextInt(10);
             collector.emit(new Values(batchId, value));
+        }
+        try{
+            Thread.sleep(1000);
+        }catch (Exception e){
+
         }
     }
     

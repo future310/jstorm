@@ -29,8 +29,10 @@ import org.apache.commons.lang.builder.ToStringStyle;
 import com.alibaba.jstorm.schedule.default_assign.ResourceWorkerSlot;
 
 /**
- * Assignment of one Toplogy, stored in /ZK-DIR/assignments/{topologyid} nodeHost {supervisorid: hostname} -- assigned supervisor Map taskStartTimeSecs:
- * {taskid, taskStartSeconds} masterCodeDir: topology source code's dir in Nimbus taskToResource: {taskid, ResourceAssignment}
+ * Assignment of one Toplogy, stored in /ZK-DIR/assignments/{topologyid} nodeHost {supervisorid: hostname}
+ * -- assigned supervisor Map taskStartTimeSecs:{taskid, taskStartSeconds}
+ * masterCodeDir: topology source code's dir in Nimbus
+ * taskToResource: {taskid, ResourceAssignment}
  * 
  * @author Lixin/Longda
  */

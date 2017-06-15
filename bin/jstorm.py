@@ -96,12 +96,12 @@ def get_server_childopts(log_name):
     ret = (" -Xloggc:%s -Dlogfile.name=%s -Dlogback.configurationFile=%s -Djstorm.log.dir=%s "  %(gc_log_path, filename, LOGBACK_CONF, jstorm_log_dir))
     return ret
 
-if not os.path.exists(JSTORM_DIR + "/RELEASE"):
-    print "******************************************"
-    print "The jstorm client can only be run from within a release. You appear to be trying to run the client from a checkout of JStorm's source code."
-    print "\nYou can download a JStorm release "
-    print "******************************************"
-    sys.exit(1)  
+# if not os.path.exists(JSTORM_DIR + "/RELEASE"):
+#     print "******************************************"
+#     print "The jstorm client can only be run from within a release. You appear to be trying to run the client from a checkout of JStorm's source code."
+#     print "\nYou can download a JStorm release "
+#     print "******************************************"
+#     sys.exit(1)
 
 def get_jars_full(adir):
     files = os.listdir(adir)

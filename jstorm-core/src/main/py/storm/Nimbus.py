@@ -371,7 +371,7 @@ class Iface:
      - host
     """
     pass
-
+TMessageType
   def getPagingNettyMetrics(self, topologyId, host, page):
     """
     Parameters:

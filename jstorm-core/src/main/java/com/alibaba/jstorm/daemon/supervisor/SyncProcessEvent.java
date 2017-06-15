@@ -55,7 +55,10 @@ import com.alibaba.jstorm.utils.TimeFormat;
 import com.alibaba.jstorm.utils.TimeUtils;
 
 /**
- * SyncProcesses (1) kill bad worker (2) start new worker
+ * SyncProcesses
+ *
+ * (1) kill bad worker
+ * (2) start new worker
  *
  * @author Johnfang (xiaojian.fxj@alibaba-inc.com)
  */
